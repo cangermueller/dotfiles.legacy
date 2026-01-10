@@ -71,10 +71,6 @@ dotfiles:
     dst: ~/.tmux.conf
     link: absolute
     src: .tmux.conf
-  f_tmux_sessions_default_conf:
-    dst: ~/.tmux/sessions/default.conf
-    link: absolute
-    src: .tmux/sessions/default.conf
   f_vimrc:
     dst: ~/.vimrc
     link: absolute
@@ -85,20 +81,16 @@ dotfiles:
 profiles:
   base:
     dotfiles:
-    - f_shell_config.sh
     - f_bash_config.sh
     - f_bash_global.sh
     - f_bash_local.sh
-    - f_zsh_config.sh
-    - f_zsh_global.sh
-    - d_tmux_plugins_tpm
     - d_vim
-    - f_fzf_preview.sh
-    - f_gitconfig
-    - f_htoprc
-    - f_ipython_default
-    - f_abspath.py
-    - f_screenrc
-    - f_tmux_conf
-    - f_tmux_sessions_default_conf
     - f_vimrc
+    - f_htoprc
+    - f_screenrc
+    - d_tmux_plugins_tpm
+    - f_tmux_conf
+    - f_gitconfig
+    - f_fzf_preview.sh
+    - f_abspath.py
+    - f_ipython_default

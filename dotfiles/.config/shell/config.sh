@@ -25,6 +25,8 @@ prepend_path "$opt/bin"
 export ssr="$HOME/.ssh"
 export ssc="$ssr/config"
 export etc="$HOME/etc"
+export PROFILE="$HOME/.profile"
+export BASHRC="$HOME/.bashrc"
 
 # Configs
 export cfg="$HOME/.config"
@@ -234,13 +236,9 @@ function stdir {
 # Editor
 export EDITOR="nvim"
 alias vi="$EDITOR -p"
+alias vid="$EDITOR -d"
 
 ## nvim
-export FD="$HOME/tmp/fen/dotfiles"
-export FN="$FD/.config/nvim"
-export FNI="$FN/init.lua"
-
-export PATH="$PATH:$stow/nvim/squashfs-root/usr/bin"
 export NV="$cfg/nvim"
 export NVI="$NV/init.lua"
 export NVF="$NV/ftplugin"
@@ -257,12 +255,12 @@ export NMU="$NM/utils.lua"
 export NP="$NVL/plugins"
 export NPI="$NP/init.lua"
 
+export NVS="$HOME/.local/share/nvim"
+export NVY="$NVS/lazy"
+
 export NG="$NVY/nvgoog/lua/nvgoog"
 export NGD="$NG/default"
 export NGG="$NG/google"
-
-export NVD="$HOME/.local/share/nvim"
-export NVY="$NVD/lazy"
 
 function clean_nvim {
   rm -rf ~/.local/share/nvim
@@ -306,7 +304,7 @@ function tma {
 export ipy="$HOME/.ipython"
 export ipyp="$ipy/profile_default/startup/00_default.py"
 alias ipc='ipython'
-alias ipn='ipython notebook --no-browser'
+alias ipn='ipython notebook'
 
 ## PIP
 alias pipi='pip install -U'
@@ -419,4 +417,4 @@ if [[ -f $extras ]]; then
   source $extras
 fi
 
-alias fpre="fzf_preview.sh"
+alias fp="fzf_preview.sh"
