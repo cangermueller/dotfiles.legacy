@@ -253,14 +253,17 @@ export NMO="$NM/options.lua"
 export NMU="$NM/utils.lua"
 
 export NP="$NVL/plugins"
-export NPI="$NP/init.lua"
+export NPL="$NP/lsp.lua"
+export NPA="$NP/lspsage.lua"
+export NPC="$NP/citc.lua"
+export NPG="$NP/glugins.lua"
+export NPT="$NP/telescope.lua"
+export NPR="$NP/treesitter.lua"
+export NPM="$NP/misc.lua"
+export NPM="$NP/ui.lua"
 
 export NVS="$HOME/.local/share/nvim"
 export NVY="$NVS/lazy"
-
-export NG="$NVY/nvgoog/lua/nvgoog"
-export NGD="$NG/default"
-export NGG="$NG/google"
 
 function clean_nvim {
   rm -rf ~/.local/share/nvim
@@ -334,21 +337,20 @@ alias ports="port search"
 alias gg="git"
 alias ggs='git status -u'
 alias ggc='git commit'
-alias ggca='git add -A :/ && git commit -a -m'
-alias ggcc='ggca "Update configs"'
-alias ggcd='ggca "Update documentation"'
-alias ggcm='ggca "Minor changes"'
-alias ggcr='ggca "Update README"'
-alias ggcs='ggca "Update cheat sheets"'
+alias ggcm='git add -A :/ && git commit -a -m'
+alias ggcc='ggcm "Update configs"'
+alias ggci='ggcm "Minor changes"'
+alias ggcd='ggcm "Update documentation"'
+alias ggcs='ggcm "Update cheat sheets"'
 alias gga='git add'
 alias ggmv='git mv'
 alias ggrm='git rm'
 alias ggA='git add -A :/'
-alias ggd='git diff'
+alias ggi='git diff'
 alias ggp='git pull'
 alias ggP='git push'
 alias ggb='git branch -a'
-alias ggi='git init .'
+alias ggn='git init .'
 alias ggco='git checkout'
 alias ggcl='git clone'
 alias ggl='git log'
