@@ -1,5 +1,6 @@
 actions:
   vundle: vim +PluginClean! +PluginInstall +PluginInstall! +qall
+
 config:
   backup: true
   banner: true
@@ -9,7 +10,8 @@ config:
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
-  link_on_import: link
+  # link_on_import: link
+
 dotfiles:
   f_shell_config.sh:
     dst: ~/.config/shell/config.sh
@@ -83,7 +85,7 @@ dotfiles:
     - vundle
 
 profiles:
-  base:
+  christofa-mac.roam.internal:
     dotfiles:
     - f_shell_config.sh
     - f_bash_config.sh
