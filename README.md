@@ -18,9 +18,6 @@ cd dotfiles
 bash ./dotdrop.sh install -p base
 ```
 
-2. Add `source ~/.bash_profile` to `~/.profile`.
-3. Add `source ~/.dotrc` to `~/.bash_profile`.
-
 
 ### Fuzzy finder
 See [fzf](https://github.com/junegunn/fzf) for mode details.

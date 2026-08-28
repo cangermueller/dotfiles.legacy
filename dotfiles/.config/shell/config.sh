@@ -25,6 +25,8 @@ prepend_path "$opt/bin"
 export ssr="$HOME/.ssh"
 export ssc="$ssr/config"
 export etc="$HOME/etc"
+export PROFILE="$HOME/.profile"
+export BASHRC="$HOME/.bashrc"
 
 # Configs
 export cfg="$HOME/.config"
@@ -234,13 +236,9 @@ function stdir {
 # Editor
 export EDITOR="nvim"
 alias vi="$EDITOR -p"
+alias vid="$EDITOR -d"
 
 ## nvim
-export FD="$HOME/tmp/fen/dotfiles"
-export FN="$FD/.config/nvim"
-export FNI="$FN/init.lua"
-
-export PATH="$PATH:$stow/nvim/squashfs-root/usr/bin"
 export NV="$cfg/nvim"
 export NVI="$NV/init.lua"
 export NVF="$NV/ftplugin"
@@ -255,14 +253,17 @@ export NMO="$NM/options.lua"
 export NMU="$NM/utils.lua"
 
 export NP="$NVL/plugins"
-export NPI="$NP/init.lua"
+export NPL="$NP/lsp.lua"
+export NPA="$NP/lspsage.lua"
+export NPC="$NP/citc.lua"
+export NPG="$NP/glugins.lua"
+export NPT="$NP/telescope.lua"
+export NPR="$NP/treesitter.lua"
+export NPM="$NP/misc.lua"
+export NPM="$NP/ui.lua"
 
-export NG="$NVY/nvgoog/lua/nvgoog"
-export NGD="$NG/default"
-export NGG="$NG/google"
-
-export NVD="$HOME/.local/share/nvim"
-export NVY="$NVD/lazy"
+export NVS="$HOME/.local/share/nvim"
+export NVY="$NVS/lazy"
 
 function clean_nvim {
   rm -rf ~/.local/share/nvim
@@ -306,7 +307,7 @@ function tma {
 export ipy="$HOME/.ipython"
 export ipyp="$ipy/profile_default/startup/00_default.py"
 alias ipc='ipython'
-alias ipn='ipython notebook --no-browser'
+alias ipn='ipython notebook'
 
 ## PIP
 alias pipi='pip install -U'
@@ -336,21 +337,20 @@ alias ports="port search"
 alias gg="git"
 alias ggs='git status -u'
 alias ggc='git commit'
-alias ggca='git add -A :/ && git commit -a -m'
-alias ggcc='ggca "Update configs"'
-alias ggcd='ggca "Update documentation"'
-alias ggcm='ggca "Minor changes"'
-alias ggcr='ggca "Update README"'
-alias ggcs='ggca "Update cheat sheets"'
+alias ggcm='git add -A :/ && git commit -a -m'
+alias ggcc='ggcm "Update configs"'
+alias ggci='ggcm "Minor changes"'
+alias ggcd='ggcm "Update documentation"'
+alias ggcs='ggcm "Update cheat sheets"'
 alias gga='git add'
 alias ggmv='git mv'
 alias ggrm='git rm'
 alias ggA='git add -A :/'
-alias ggd='git diff'
+alias ggi='git diff'
 alias ggp='git pull'
 alias ggP='git push'
 alias ggb='git branch -a'
-alias ggi='git init .'
+alias ggn='git init .'
 alias ggco='git checkout'
 alias ggcl='git clone'
 alias ggl='git log'
@@ -419,4 +419,4 @@ if [[ -f $extras ]]; then
   source $extras
 fi
 
-alias fpre="fzf_preview.sh"
+alias fp="fzf_preview.sh"
