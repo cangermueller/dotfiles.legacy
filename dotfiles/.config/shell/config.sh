@@ -1,8 +1,3 @@
-# Changing default shell
-alias set_bash="chsh -s /bin/bash"
-alias set_zsh="chsh -s /usr/bin/zsh"
-alias set_fish="chsh -s /opt/local/bin/fish"
-
 function prepend_path() {
   if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
     export PATH="$1:$PATH"
@@ -25,6 +20,8 @@ prepend_path "$opt/bin"
 export ssr="$HOME/.ssh"
 export ssc="$ssr/config"
 export etc="$HOME/etc"
+
+# Dotfiles
 export PROFILE="$HOME/.profile"
 export BASHRC="$HOME/.bashrc"
 
@@ -43,32 +40,11 @@ alias brc="source $brc"
 export brg="$br/global.sh"
 export brl="$br/local.sh"
 
-# ZSH
-export zr="$cfg/zsh"
-export zrc="$zr/config.sh"
-alias zrc="source $zrc"
-export zrg="$zr/global.sh"
-export zrl="$zr/local.sh"
-
-
 # Dotfiles
 export Dot="$etc/dotfiles"
 export dot="$Dot/dotfiles"
 alias dot="$Dot/dotdrop.sh"
 alias doti="dot install -p base"  # doti f_shell_config.sh
-
-function dotI {
-  files=""
-  for path in $@; do
-    if [[ ${path:0:1} != "-" ]]; then
-      path=$(realpath $path)
-    fi
-    files="$files $path"
-  done
-  cmd="dot import -p base $files"
-  echo $cmd
-  eval $cmd
-}
 
 
 # Cheat sheets
@@ -103,7 +79,6 @@ alias cx='chmod u+x'
 alias mv='mv -i' # prompt before overwriting files
 alias mk='mkdir -p'
 alias c='clear'
-alias bc='bc -l' # Calculator
 alias du='du -h'
 alias dus='du -hs'
 alias df='df -h'
@@ -111,11 +86,8 @@ alias tx='tar xf'
 alias tc='tar cf'
 alias grep='grep --color'
 alias tac='tail -r'
-alias sql='sqlite3 -list'
 alias le='less -IS'
 alias scp='scp -r'
-alias Make='make -B'
-alias wat='watch -n 1 tail -n 20'
 alias wcl='wc -l'
 alias h10='head -n 10'
 alias h20='head -n 20'
@@ -159,12 +131,6 @@ alias dir9="tree -L 100 -shC"
 
 # Job management
 alias htop='htop -u $USER -d 10'
-alias Jobs='jobs -l'
-alias Kill='kill -9'
-alias pKill="pkill -9 -n"
-alias psa='ps a'
-alias pss='pgrep -a'
-alias psk='pkill -9'
 
 
 # Functions
@@ -274,17 +240,6 @@ function clean_nvim {
 ## vim
 export VR="$HOME/.vim"
 export VRC="$HOME/.vimrc"
-export VB="$VR/bundle"
-export VV="$VR/vundle.vim"
-export VF="$VR/ftplugin"
-export VFP="$VF/python.vim"
-export VFPL="$VF/python_local.vim"
-export VFC="$VF/cpp.vim"
-export VLp="$VR/local_pre.vim"
-export VLP="$VR/local_post.vim"
-export VLP="$VR/local_post.vim"
-export VC="$VR/coc.vim"
-export VCS="$VR/coc-settings.json"
 
 # tmux
 export tmux="$HOME/.tmux"
@@ -303,12 +258,6 @@ function tma {
 
 # Python
 
-## IPython
-export ipy="$HOME/.ipython"
-export ipyp="$ipy/profile_default/startup/00_default.py"
-alias ipc='ipython'
-alias ipn='ipython notebook'
-
 ## PIP
 alias pipi='pip install -U'
 alias pipr='pip uninstall'
@@ -322,15 +271,6 @@ alias aptr="sudo apt-get remove"
 alias aptu="sudo apt-get update"
 alias aptU="sudo apt-get upgrade"
 alias apts="apt-cache search"
-
-# MacPort
-alias port="/opt/local/bin/port"
-alias sport="sudo port"
-alias porti="port install"
-alias portr="port uninstall"
-alias portu="port selfupdate"
-alias portU="port upgrade outdated"
-alias ports="port search"
 
 
 # Git
@@ -357,11 +297,6 @@ alias ggl='git log'
 alias ggt='git tag'
 alias ggT='git tag -l'
 alias ggsm='git submodule'
-
-# HDF
-alias hls='h5ls'
-alias hLs='h5ls -r'
-alias hd='h5dump -d'
 
 
 # ripgrap
@@ -397,12 +332,6 @@ function gguz {
   fi
   gunzip -c $infile > $outfile
 }
-
-
-# Testing
-tests="$HOME/docs/tests"
-export ptest="$tests/test.py"
-alias ptest="python $ptest"
 
 
 # FZF / Fuzzy Finder
